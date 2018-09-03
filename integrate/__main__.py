@@ -29,7 +29,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 if args.type == "view":
-	print(UserManager().get_user_data(user_id=args.user_id, user_email=args.user_email))
+	print(UserManager().get_user_data(user_id=args.user_id, user_email=args.email))
 elif args.type == "message":
 	print("sending message")
-	print(UserManager().message_user(user_id=args.user_id, user_email=args.user_email))
+	print(UserManager().message_user(user_id=args.user_id, user_email=args.email))

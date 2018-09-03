@@ -26,4 +26,35 @@ def insert_user(name, email, amount, sent):
 		})
 
 
-insert_user("hopper", "hopper@gmail.com", 299, True)
+users = [
+	[
+		"Hopper",
+		"hopper@gmail.com",
+		269,
+		False
+	],
+
+	[
+		"Drake",
+		"drake@gmail.com",
+		690,
+		False
+	],
+
+	[
+		"Adam",
+		"adam@gmail.com",
+		20,
+		False
+	],
+
+	[
+		"Justin",
+		"justin@gmail.com",
+		199,
+		False
+	]
+]
+
+for user in users:
+	insert_user(user[0], user[1], user[2], user[3])

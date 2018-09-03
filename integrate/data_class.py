@@ -30,7 +30,10 @@ class UserManager:
 			return (plain, html)
 		return (None, None)
 
-	def message_user(self, user_id=None, user_email=None):
+	def message_user(self, user_id=None, user_email=None, all_users=False):
+		if all_users:
+			self.message_all
+
 		user = self.get_user_data(user_id=user_id, user_email=user_email)
 		if isinstance(user, dict):
 			plain_, html_ = self.render_message(user)
@@ -65,6 +68,13 @@ class UserManager:
 				email_conn.quit()
 
 		return None
+
+	def message_all(self):
+		with open(FILE_PATH) as csvfile:
+			reader = csv.DictReader(csvfile)
+			for row in reader:
+				row_id = int(row.get("id"))
+				print(self.message_user(user_id=row_id))
 
 	def get_user_data(self, user_id=None, user_email=None):
 		with open(FILE_PATH) as csvfile:

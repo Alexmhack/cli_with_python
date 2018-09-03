@@ -1,5 +1,5 @@
 id,name,email,amount,date,sent
-1,Hopper,hopper@gmail.com,269,03 Sep at 21:14,False
-2,Drake,drake@gmail.com,690,03 Sep at 21:14,False
-3,Adam,adam@gmail.com,20,03 Sep at 21:14,False
-4,Justin,justin@gmail.com,199,03 Sep at 21:14,False
+1,Hopper,email-address,269,03 Sep at 21:14,False
+2,Drake,email-address,690,03 Sep at 21:14,False
+3,Adam,email-address,20,03 Sep at 21:14,False
+4,Justin,email-address,199,03 Sep at 21:14,False

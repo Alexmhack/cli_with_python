@@ -3,7 +3,7 @@ from datetime import datetime
 
 from append_function import get_length
 
-FILE_PATH = 'data.csv'
+FILE_PATH = '../data.csv'
 
 def insert_user(name, email, amount, sent):
 	with open(FILE_PATH, 'a', newline='') as csvfile:
@@ -21,7 +21,7 @@ def insert_user(name, email, amount, sent):
 			"name": name,
 			"email": email,
 			"amount": amount,
-			"date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+			"date": datetime.now().strftime("%d %b at %H:%M"),
 			"sent": sent
 		})
 

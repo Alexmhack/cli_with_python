@@ -131,16 +131,14 @@ We hope you are excited about using it.
 Just as a reminder the purchase total was $599.
 Have a greate one!
 
-Team Django
+Team Alexmhack
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Django Email Message</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <title>Alexmhack Email Message</title>
 </head>
 <body>
-        <h1 class="text-center">Hi Pranav!</h1>
+        <h1>Hi Pranav!</h1>
         <p>
                 Thank you for your purchase on 15th Aug, 18.
                 We hope you are excited about using it.

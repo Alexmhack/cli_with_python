@@ -1,9 +1,21 @@
 import os
 import csv
 
+from smtplib import SMTP, SMTPAuthenticationError, SMTPException
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 from utils.templates import get_template, render_context
 
 FILE_PATH = os.path.join(os.path.dirname(__file__), 'data.csv')
+
+host = "smtp.gmail.com"
+port = 587
+username = "your-email-address"
+password = "your-password"
+
+from_email = username
+to_list = []
 
 class UserManager:
 
@@ -11,7 +23,7 @@ class UserManager:
 		template = get_template(r'templates\email_message.txt')
 		template_html = get_template(r'templates\email_message.html')
 
-		if isinstance(user, dict):
+		if isinstance(user_data, dict):
 			context = user_data
 			plain = render_context(template, context)
 			html = render_context(template_html, context)
@@ -21,12 +33,37 @@ class UserManager:
 	def message_user(self, user_id=None, user_email=None):
 		user = self.get_user_data(user_id=user_id, user_email=user_email)
 		if isinstance(user, dict):
-			template = get_template(r'templates\email_message.txt')
-			template_html = get_template(r'templates\email_message.html')
+			plain_, html_ = self.render_message(user)
+			print(plain_)
+			print(html_)
+			email = user.get("email", username)
+			to_list.append(email)
+			print(to_list)
 
-			context = user
-			print(render_context(template, context))
-			print(render_context(template_html, context))
+			try:
+				email_conn = SMTP(host, port)
+				email_conn.ehlo()
+				email_conn.starttls()
+
+				message = MIMEMultipart("alternative")
+				message['Subject'] = "Hello there"
+				message['From'] = 'Python Developer'
+				message['To'] = email
+
+				part_1 = MIMEText(plain_, 'plain')
+				part_2 = MIMEText(html_, 'html')
+
+				message.attach(part_1)
+				message.attach(part_2)
+
+				email_conn.login(username, password)
+				email_conn.sendmail(from_email, to_list, message.as_string())
+				return f"EMAIL SENT TO {to_list[0]}"
+			except SMTPException as e:
+				print(e)
+			finally:
+				email_conn.quit()
+
 		return None
 
 	def get_user_data(self, user_id=None, user_email=None):

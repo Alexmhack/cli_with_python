@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from data_manager import find_user
+from data_class import UserManager
 from utils.templates import get_template, render_context
 
 parser = ArgumentParser(prog="integrate", usage="%(prog)s [options]",
@@ -30,9 +30,9 @@ args = parser.parse_args()
 
 if args.type == "view":
 	if args.user_id:
-		print(find_user(user_id=args.user_id))
+		print(UserManager.get_user_data(user_id=args.user_id))
 	if args.email:
-		print(find_user(user_email=args.email))
+		print(UserManager.get_user_data(user_email=args.email))
 else:
 	print("sending message")
 	template = get_template(r'templates\email_message.txt')

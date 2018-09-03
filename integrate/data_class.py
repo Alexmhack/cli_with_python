@@ -30,10 +30,7 @@ class UserManager:
 			return (plain, html)
 		return (None, None)
 
-	def message_user(self, user_id=None, user_email=None, all_users=False):
-		if all_users:
-			self.message_all
-
+	def message_user(self, user_id=None, user_email=None):
 		user = self.get_user_data(user_id=user_id, user_email=user_email)
 		if isinstance(user, dict):
 			plain_, html_ = self.render_message(user)

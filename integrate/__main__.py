@@ -26,10 +26,21 @@ parser.add_argument(
 	choices=['view', 'message']
 )
 
+parser.add_argument(
+	"-all",
+	"--all_users",
+	action="store_true",
+	help="sends message to all the users"
+)
+
 args = parser.parse_args()
 
 if args.type == "view":
 	print(UserManager().get_user_data(user_id=args.user_id, user_email=args.email))
 elif args.type == "message":
-	print("sending message")
-	print(UserManager().message_user(user_id=args.user_id, user_email=args.email))
+	if args.all_users:
+		print("SENDING EMAILS...")
+		print(UserManager().message_all())
+	else:
+		print("SENDING EMAILS...")
+		print(UserManager().message_user(user_id=args.user_id, user_email=args.email))

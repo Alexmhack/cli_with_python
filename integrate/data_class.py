@@ -37,11 +37,8 @@ class UserManager:
 		user = self.get_user_data(user_id=user_id, user_email=user_email)
 		if isinstance(user, dict):
 			plain_, html_ = self.render_message(user)
-			print(plain_)
-			print(html_)
 			email = user.get("email", username)
 			to_list.append(email)
-			print(to_list)
 
 			try:
 				email_conn = SMTP(host, port)
@@ -61,7 +58,7 @@ class UserManager:
 
 				email_conn.login(username, password)
 				email_conn.sendmail(from_email, to_list, message.as_string())
-				return f"EMAIL SENT TO {to_list[0]}"
+				return f"EMAIL SENT TO {email}"
 			except SMTPException as e:
 				print(e)
 			finally:

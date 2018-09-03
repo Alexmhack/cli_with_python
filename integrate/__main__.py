@@ -30,6 +30,6 @@ args = parser.parse_args()
 
 if args.type == "view":
 	print(UserManager().get_user_data(user_id=args.user_id, user_email=args.user_email))
-else:
+elif args.type == "message":
 	print("sending message")
 	print(UserManager().message_user())

@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 
 from data_manager import find_user
+from utils.templates import get_template, render_context
 
 parser = ArgumentParser(prog="integrate", usage="%(prog)s [options]",
 	description="Run python codes for handling csv data using the commands and options")

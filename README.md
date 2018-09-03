@@ -352,4 +352,10 @@ iterates over all the rows and sends emails by calling the
 
 We all print the returned message from function call
 
-This is it! We have successfully created a email sending python backend command line app.
+One more thing that is missing from our email sending command line app is that we don't 
+have a tally which tells that which users are already been mailed, we have a field defined 
+for this purpose remember the **sent** field which is currently set to False.
+
+What we will be doing now is editing that field to True if email has been sent and checking
+the next time before sending emails that we don't send email to users with **True** set as 
+**sent** field.

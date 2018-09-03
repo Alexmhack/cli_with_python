@@ -7,18 +7,15 @@ FILE_PATH = os.path.join(os.path.dirname(__file__), 'data.csv')
 
 class UserManager:
 
-	def message_user(self):
-		template = get_template(r'templates\email_message.txt')
-		template_html = get_template(r'templates\email_message.html')
+	def message_user(self, user_id=None, user_email=None):
+		user = self.get_user_data(user_id=user_id, user_email=user_email)
+		if isinstance(user, dict):
+			template = get_template(r'templates\email_message.txt')
+			template_html = get_template(r'templates\email_message.html')
 
-		context = {
-			'name': 'Pranav',
-			'date': '15th Aug, 18',
-			'total': 599
-		}
-
-		print(render_context(template, context))
-		print(render_context(template_html, context))
+			context = user
+			print(render_context(template, context))
+			print(render_context(template_html, context))
 		return None
 
 	def get_user_data(self, user_id=None, user_email=None):

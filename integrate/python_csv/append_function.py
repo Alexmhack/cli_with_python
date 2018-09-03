@@ -22,4 +22,6 @@ def append_data(file_path, name, email):
 		})
 
 
-append_data("data.csv", "Alex", "Alex@code.com")
+if __name__ == "__main__":
+	append_data("data.csv", "Alex", "Alex@code.com")
+

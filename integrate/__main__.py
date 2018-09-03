@@ -30,9 +30,9 @@ args = parser.parse_args()
 
 if args.type == "view":
 	if args.user_id:
-		print(UserManager.get_user_data(user_id=args.user_id))
+		print(UserManager().get_user_data(user_id=args.user_id))
 	if args.email:
-		print(UserManager.get_user_data(user_email=args.email))
+		print(UserManager().get_user_data(user_email=args.email))
 else:
 	print("sending message")
 	template = get_template(r'templates\email_message.txt')

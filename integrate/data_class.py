@@ -13,6 +13,7 @@ class UserManager:
 				unknown_id = None
 				unknown_email = None
 				found_email = None
+				found_id = None
 				if user_id is not None:
 					if user_email is not None:
 						if int(user_id) == row_id:
@@ -30,11 +31,16 @@ class UserManager:
 							return row
 						else:
 							unknown_id = int(user_id)
-				if user_email == row.get("email"):
-					return row
+				else:
+					if user_email == row.get("email"):
+						return row
+					else:
+						unknown_email = user_email
 
-			if unknown_email and found_id is not None:
-				return f"USER EMAIL: {unknown_email} NOT FOUND BUT USER ID: {found_id}"
+			if unknown_email is not None:
+				if found_id is not None:
+					return f"USER EMAIL: {unknown_email} NOT FOUND BUT USER ID: {found_id}"
+				return f"USER EMAIL: {unknown_email} NOT FOUND AND ID NOT PROVIDED"
 			if unknown_id is not None:
 				if found_email is not None:
 					return f"USER ID: {unknown_id} NOT FOUND BUT FOUND EMAIL: {found_email}"

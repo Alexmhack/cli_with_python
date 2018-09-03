@@ -32,4 +32,4 @@ if args.type == "view":
 	print(UserManager().get_user_data(user_id=args.user_id, user_email=args.user_email))
 elif args.type == "message":
 	print("sending message")
-	print(UserManager().message_user())
+	print(UserManager().message_user(user_id=args.user_id, user_email=args.user_email))

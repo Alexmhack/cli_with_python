@@ -1,10 +1,26 @@
 import os
-from pathlib import Path
 import csv
+
+from utils.templates import get_template, render_context
 
 FILE_PATH = os.path.join(os.path.dirname(__file__), 'data.csv')
 
 class UserManager:
+
+	def message_user(self):
+		template = get_template(r'templates\email_message.txt')
+		template_html = get_template(r'templates\email_message.html')
+
+		context = {
+			'name': 'Pranav',
+			'date': '15th Aug, 18',
+			'total': 599
+		}
+
+		print(render_context(template, context))
+		print(render_context(template_html, context))
+		return None
+
 	def get_user_data(self, user_id=None, user_email=None):
 		with open(FILE_PATH) as csvfile:
 			reader = csv.DictReader(csvfile)

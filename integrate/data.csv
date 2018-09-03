@@ -1,10 +1,5 @@
-id,name,email,amount,sent
-8,alex,alex@gmail.com,599.99,True
-1,alex,alex@gmail.com,599.99,True
-2,alex,alex@gmail.com,599.99,True
-3,alex,alex@gmail.com,599.99,True
-4,alex,alex@gmail.com,599.99,True
-5,alex,alex@gmail.com,599.99,True
-1,alex,alex@gmail.com,599.99,True
-1,alex,alex@gmail.com,599.99,True
-1,ghostlex,alex@gmail.com,599.99,True
+id,name,email,amount,date,sent
+1,Hopper,hopper@gmail.com,269,2018-09-03 18:56:01,False
+2,Drake,drake@gmail.com,690,2018-09-03 18:56:01,False
+3,Adam,adam@gmail.com,20,2018-09-03 18:56:01,False
+4,Justin,justin@gmail.com,199,2018-09-03 18:56:01,False

@@ -13,7 +13,7 @@ So far we have made our command line app work with simple commands like
 .../python_intermediate> python integrate -h
 .../python_intermediate> python integrate view -id 1
 .../python_intermediate> python integrate view --user_id 10
-.../python_intermediate> python integrate message
+.../python_intermediate> python integrate message -id 1
 ```
 
 In this tutorial we will be advancing our command line app.
@@ -214,11 +214,9 @@ Team Django
 <html>
 <head>
         <title>Django Email Message</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-        <h1 class="text-center">Hi Hopper!</h1>
+        <h1>Hi Hopper!</h1>
         <p>
                 Thank you for your purchase on 2018-09-03 18:56:01.
                 We hope you are excited about using it.
